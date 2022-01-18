@@ -1,0 +1,38 @@
+{
+  "name": "proyecto-final-coderhouse-backend",
+  "version": "1.0.0",
+  "description": "Contendra las rutas necesarias que permitan listar los productos existentes, ingresar productos nuevos, borrar y modificar sus detalles, asi como interactuar con el carrito\r Se implementara una API Restful con los verbos get, post, put y delete, para cumplir con todas las acciones necesarias\r Debe brindar al frontend un mecanismo de ingreso autorizado al sistema basado en JWT (Json Web Token)\r Los productos ingresados se almacenaran en una base de datos MongoDB\r El usuario podra registrar sus credenciales de acceso (email y password) para luego poder ingresar a su cuenta. Estas credenciales seran guardadas en la DB, encriptando la contraseña\r El cliente tendra una sesion activa de usuario con tiempo de expiracion configurable\r Implementaras un canal de chat basado en websockets, el cual permita atender las consultas del cliente\r La arquitectura del servidor estara basada en capas (MVC)\r El servidor podra tomar configuraciones desde un archivo externo\r Dispondra de una vista creada con pug, que permita ver la configuracion del servidor\r Se enviara un mail a una casilla configurable, por cada registro nuevo de usuario y con cada orden de compra generada\r En caso de detectar algun error, el servidor enviara una vista implementada con ejs, que contenga el id y el detalle completo",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.3.0",
+    "mongoose": "^6.1.7",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanshalem/proyecto-final-coderhouse-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanshalem/proyecto-final-coderhouse-backend/issues"
+  },
+  "homepage": "https://github.com/alanshalem/proyecto-final-coderhouse-backend#readme"
+}
