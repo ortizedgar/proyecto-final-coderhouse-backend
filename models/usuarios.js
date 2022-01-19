@@ -26,7 +26,7 @@ const UsuariosSchema = new mongoose.Schema({
 	},
 });
 
-UserSchema.pre('save', function (next) {
+UsuariosSchema.pre('save', function (next) {
 	const user = this;
 	const hash = bcrypt.hashSync(user.password, 10);
 

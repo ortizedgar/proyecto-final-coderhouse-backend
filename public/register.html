@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>REGISTRARSE - ECOMMERCE</title>
+</head>
+
+<body>
+
+    <h3>Registrarse</h3>
+    <form action="/api/auth/register" method="post" role="form">
+        <input type="text" id="name" name="name" placeholder="Nombre Completo " required>
+
+        <input type="text" id="address" name="address" placeholder="Dirección " required>
+
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Número de teléfono " required>
+
+        <input type="email" id="username" name="username" placeholder="Email " required>
+
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+
+        <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Repetir contraseña " required>
+        <input type="submit" value="Registrarse" />
+
+    </form>
+</body>
+
+</html>

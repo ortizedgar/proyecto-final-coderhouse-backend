@@ -3,9 +3,11 @@ const app = express();
 
 const handlebars = require('express-handlebars');
 
+const { engine } = require('express-handlebars');
+
 app.engine(
 	'handlebars',
-	handlebars({ extname: '.hbs', defaultLayout: 'index.hbs' })
+	engine({ extname: '.hbs', defaultLayout: 'index.hbs' })
 );
 
 app.set('view engine', 'handlebars');
@@ -36,7 +38,7 @@ const getProductos = async (req, res) => {
 		.catch((err) => res.send(err));
 };
 
-const getByCategory = async (req, res) => {
+const getProductosByCategoria = async (req, res) => {
 	const { categoria } = req.params;
 
 	productoModel.find({ categoria: categoria }).then((productos) => {
@@ -75,7 +77,7 @@ const deleteProducto = async (req, res) => {
 
 module.exports = {
 	getProductos,
-	getByCategory,
+	getProductosByCategoria,
 	addProducto,
 	deleteProducto,
 };

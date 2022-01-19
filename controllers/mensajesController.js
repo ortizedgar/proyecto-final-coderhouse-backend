@@ -2,12 +2,13 @@ const express = require('express');
 const app = express();
 
 const handlebars = require('express-handlebars');
+const { engine } = require('express-handlebars');
 
 app.use(express.json());
 
 app.engine(
 	'handlebars',
-	handlebars({
+	engine({
 		extname: '.hbs',
 		defaultLayout: 'index.hbs',
 	})

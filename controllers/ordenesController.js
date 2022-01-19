@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const ordenModel = require('../models/ordenes');
-const carritoModel = require('../models/carrito');
-const userModel = require('../models/user');
+const carritoModel = require('../models/carritos');
+const userModel = require('../models/usuarios');
 const sendEmail = require('../email/ethereal');
 
 app.use(express.json());

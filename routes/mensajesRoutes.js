@@ -8,3 +8,5 @@ const mensajesController = require('../controllers/mensajesController');
 
 router.get('/', mensajesController.getMensajes);
 router.get('/:email', mensajesController.getMensajesByEmail);
+
+module.exports = router;

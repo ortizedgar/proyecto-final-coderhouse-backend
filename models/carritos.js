@@ -7,7 +7,7 @@ const CarritosSchema = new mongoose.Schema({
 	userID: { type: String, require: true },
 	productos: [
 		{
-			productID: { type: String },
+			productoID: { type: String },
 			nombre: String,
 			cantidad: { type: Number, required: true, default: 1 },
 			precio: Number,

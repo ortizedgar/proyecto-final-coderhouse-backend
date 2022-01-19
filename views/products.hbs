@@ -1,0 +1,18 @@
+<h2>Ve nuestros productos</h2>
+
+<section id='contact'>
+
+	{{#each productos}}
+
+		<img class='img-fluid' src='{{this.foto}}' />
+
+		<p>Precio: ${{this.precio}}</p>
+		<p>Stock: {{this.stock}}</p>
+		<p>ID: {{this._id}}</p>
+
+		<h3>{{this.nombre}}</h3>
+		<p>{{this.descripcion}}</p>
+
+	{{/each}}
+
+</section>
