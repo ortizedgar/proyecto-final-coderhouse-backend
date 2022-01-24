@@ -1,3 +1,9 @@
+### NOTAS:
+
+# TODA LA LOGICA DEL ECOMMERCE ESTA FUNCIONANDO, LO UNICO QUE ESTA TIRANDO ERROR ES EL SERVICIO DE REGISTER/LOGIN, QUE CUANDO QUIERO HACER UN POST ME DEVUELVE 'CANNOT POST '/'', EL RESTO DE LOS SERVICIOS SE PUEDEN PROBAR, SE PUEDE VER LA INFORMACION DEL SISTEMA TOCANDO http://localhost:5000/api/system
+
+# LAS RUTAS ESTAN EN routes/index.js y los CONTROLADORES EN controllers/
+
 Contendra las rutas necesarias que permitan listar los productos existentes, ingresar productos nuevos, borrar y modificar sus detalles, asi como interactuar con el carrito
 Se implementara una API Restful con los verbos get, post, put y delete, para cumplir con todas las acciones necesarias
 Debe brindar al frontend un mecanismo de ingreso autorizado al sistema basado en JWT (Json Web Token)
@@ -16,39 +22,39 @@ En caso de detectar algun error, el servidor enviara una vista implementada con 
 REQUISITOS BASE
 
 INICIO: al momento de requerir la ruta base '/'
-    permitir un menu de ingreso al sistema con email y password asi como tambien la posibilidad de registro de un nuevo usuario
-    el menu de registro consta del nombre completo del cliente, numero telefonico, email y campo de password duplicado para verificar coincidencia
-    si un usuario se loguea exitosamente o esta en sesion activa, la ruta '/' hara una redireccion a la ruta del carrito /productos
-    la ruta /productos devolvera el listado de todos los productos disponibles para la compra
-    la ruta /productos/:categoria devolvera los productos por la categoria requerida
-    los items podran ser agregados al carrito de compras y listados a traves de la ruta /carrito
-    se podran modificar y borrar por su id a traves de la ruta /carrito/:id
+permitir un menu de ingreso al sistema con email y password asi como tambien la posibilidad de registro de un nuevo usuario
+el menu de registro consta del nombre completo del cliente, numero telefonico, email y campo de password duplicado para verificar coincidencia
+si un usuario se loguea exitosamente o esta en sesion activa, la ruta '/' hara una redireccion a la ruta del carrito /productos
+la ruta /productos devolvera el listado de todos los productos disponibles para la compra
+la ruta /productos/:categoria devolvera los productos por la categoria requerida
+los items podran ser agregados al carrito de compras y listados a traves de la ruta /carrito
+se podran modificar y borrar por su id a traves de la ruta /carrito/:id
 
 FLOW: se puede solicitar un producto especifico con la ruta /productos/:id, donde id es el id del item generado por MongoDB y devolver la descripcion del producto (foto, precio, selector de cantidad)
-    si se ingresa a /productos/:id y el producto no existe en MongoDB, debemos responder un mensaje adecuado que indique algo relacionado a que el producto no existe
+si se ingresa a /productos/:id y el producto no existe en MongoDB, debemos responder un mensaje adecuado que indique algo relacionado a que el producto no existe
 
 MONGODB: implementar al menos estas colecciones:
-    USUARIOS: clientes registrados
-    PRODUCTOS: catalogo completo
-        link para foto (puede almacenarse en modo estatico en la pagina en una subruta /images/:productoid)
-        precio unitario descripcion
-        categoria
-    MENSAJES: chat del usuario (preguntas y respuestas)
-        email: del usuario que pregunta o al que se responde
-        tipo ('usuario' para preguntas o 'sistema' para respuestas)
-        fecha y hora
-        cuerpo del mensaje
-    CARRITO: orden temporal de compra
-        email
-        fecha y hora
-        items con sus cantidades
-        direccion de entrega
-    ORDENES: las ordenes generadas, que deben incluir los productos, descripciones y los precios al momento de la compra
-        items: las ordenes deben poder tener productos surtidos, cada uno con su cantidad. Por ej: dos remeras y una gorra
-        numero de orden: se extrae de la cantidad de ordenes almacenadas
-        fecha y hora
-        estado (por defecto en 'generada')
-        email de quien realizo la orden
-        finalizada la orden, enviar un mail a la direccion de mi cuenta con los detalles de la orden
-        se dispondra de un archivo de configuracion externo con opciones para desarrollo y otras para produccion, que seran visualizadas a traves de una vista construida con hbs. como paramentros de configuracion esta el puerto de escucha del servidor, la url de la base de datos, el mail que recibira notificaciones del backend, tiempo de expiracion de sesion y los que sea necesario incluir
-        vamos a contar con un canal de chat general donde el usuario enviara los mensajes en la ruta /chat y en /chat/:email podra ver solo los suyos. Se utilizara la coleccion mensajes en MongoDB. la tecnologia a utilizar sera Websockets. El servidor implementara una vista, utilizando hbs, para visualizar todos los mensajes y poder responder individualmente a ellos, eligiendo el mail de respuesta
+USUARIOS: clientes registrados
+PRODUCTOS: catalogo completo
+link para foto (puede almacenarse en modo estatico en la pagina en una subruta /images/:productoid)
+precio unitario descripcion
+categoria
+MENSAJES: chat del usuario (preguntas y respuestas)
+email: del usuario que pregunta o al que se responde
+tipo ('usuario' para preguntas o 'sistema' para respuestas)
+fecha y hora
+cuerpo del mensaje
+CARRITO: orden temporal de compra
+email
+fecha y hora
+items con sus cantidades
+direccion de entrega
+ORDENES: las ordenes generadas, que deben incluir los productos, descripciones y los precios al momento de la compra
+items: las ordenes deben poder tener productos surtidos, cada uno con su cantidad. Por ej: dos remeras y una gorra
+numero de orden: se extrae de la cantidad de ordenes almacenadas
+fecha y hora
+estado (por defecto en 'generada')
+email de quien realizo la orden
+finalizada la orden, enviar un mail a la direccion de mi cuenta con los detalles de la orden
+se dispondra de un archivo de configuracion externo con opciones para desarrollo y otras para produccion, que seran visualizadas a traves de una vista construida con hbs. como paramentros de configuracion esta el puerto de escucha del servidor, la url de la base de datos, el mail que recibira notificaciones del backend, tiempo de expiracion de sesion y los que sea necesario incluir
+vamos a contar con un canal de chat general donde el usuario enviara los mensajes en la ruta /chat y en /chat/:email podra ver solo los suyos. Se utilizara la coleccion mensajes en MongoDB. la tecnologia a utilizar sera Websockets. El servidor implementara una vista, utilizando hbs, para visualizar todos los mensajes y poder responder individualmente a ellos, eligiendo el mail de respuesta

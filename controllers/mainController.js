@@ -60,6 +60,7 @@ const logUser = async (req, res, next) => {
 	})(req, res, next);
 };
 
+//LOGIN DEVUELVE ERROR: CANNOT POST '/'
 const LoginOk = (req, res) => {
 	console.log('----USER AUTHENTICATED----');
 	console.log(req.isAuthenticated());
@@ -87,6 +88,7 @@ const Redirect = (req, res) => {
 
 // register
 
+//REGISTRO DEVUELVE ERROR: CANNOT POST '/'
 const register = async (req, res) => {
 	res.json({
 		message: 'Registro exitoso',

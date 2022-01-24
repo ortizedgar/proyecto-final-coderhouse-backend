@@ -25,6 +25,7 @@ const strategyJWT = {
 
 /*--------------*/
 
+//REGISTRO DEVUELVE ERROR: CANNOT POST '/'
 const register = (req, username, password, done) => {
 	try {
 		userModel.findOne({ username: username }, function (err, user) {
