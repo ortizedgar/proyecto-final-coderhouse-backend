@@ -12,12 +12,12 @@ const transporter = nodemailer.createTransport({
 });
 
 const enviarEthereal = (email, asunto, mensaje) => {
-	transporter.sendMail({
+	const mailOptions = {
 		from: 'SERVIDOR NODE.JS',
 		to: email,
 		subject: asunto,
 		html: mensaje,
-	});
+	};
 
 	transporter.sendMail(mailOptions, (error, info) => {
 		if (error) {
